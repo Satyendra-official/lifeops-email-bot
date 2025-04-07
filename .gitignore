@@ -1,0 +1,17 @@
+# Node modules (no need to push all these files)
+node_modules/
+
+# Environment variables (keep your secrets safe!)
+.env
+
+# Logs
+logs
+*.log
+
+# Optional: OS-specific junk
+.DS_Store
+Thumbs.db
+
+# Optional: IDE-specific files
+.vscode/
+.idea/
