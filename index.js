@@ -1,7 +1,10 @@
-require('dotenv').config();
-const nodemailer = require('nodemailer');
-const cron = require('node-cron');
-const axios = require("axios");
+import dotenv from 'dotenv';
+import nodemailer from 'nodemailer';
+import cron from 'node-cron';
+import axios from 'axios';
+
+// Load env variables
+dotenv.config();
 
 // Function to get a quote from the internet
 async function getQuoteFromAPI() {
@@ -16,7 +19,7 @@ async function getQuoteFromAPI() {
   } catch (err) {
     console.error("Failed to fetch quote from API:", err.message);
   }
-  
+
   // Fallback quote
   return "Success is the sum of small efforts, repeated day in and day out. – Robert Collier";
 }
@@ -59,9 +62,9 @@ async function sendDailyEmail() {
 // Schedule it daily at 8 AM IST
 cron.schedule('0 8 * * *', sendDailyEmail, {
   scheduled: true,
-  timezone: "Asia/Kolkata" // Set the timezone to India
+  timezone: "Asia/Kolkata"
 });
 
+sendDailyEmail()
 
-// sendDailyEmail()
 console.log("Daily email bot started, will send email at 8 AM daily IST.");
