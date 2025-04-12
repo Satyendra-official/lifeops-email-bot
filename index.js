@@ -62,4 +62,6 @@ cron.schedule('0 8 * * *', sendDailyEmail, {
   timezone: "Asia/Kolkata" // Set the timezone to India
 });
 
+
+// sendDailyEmail()
 console.log("Daily email bot started, will send email at 8 AM daily IST.");
